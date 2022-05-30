@@ -1,5 +1,5 @@
 {
-  "name": "paul-folio",
+  "name": "next-ts-config",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,7 +18,15 @@
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
     "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6",
+    "autoprefixer": "^10.4.4",
+    "eslint-config-next": "12.1.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "postcss": "^8.4.12",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "tailwindcss": "^3.0.24",
     "typescript": "4.7.2"
   }
 }
