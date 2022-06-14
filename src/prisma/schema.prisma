@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URI")
+}
+
+model Group {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  tents     Tent[]
+}
+
+model Tent {
+  id             String   @id @default(uuid())
+  identifyingNum Int
+  size           Int
+  unit           Unit?
+  state          State
+  complete       Boolean  @default(true)
+  integrated     Boolean  @default(false)
+  location       String   @default("local")
+  comments       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  groupId        String
+  group          Group    @relation(fields: [groupId], references: [id])
+
+  @@unique([groupId, identifyingNum], name: "TentIdentifier")
+}
+
+enum Unit {
+  FARFADETS
+  JEANNETTES
+  LOUVETEAUX
+  GUIDES
+  SCOUTS
+  PIONNIERS
+  CARAVELLES
+}
+
+enum State {
+  INUTILISABLE
+  MAUVAIS
+  OK
+  BON
+  NEUF
+}

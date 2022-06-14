@@ -6,19 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "graphql-codegen"
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma"
   },
   "dependencies": {
+    "@graphql-codegen/add": "^3.1.1",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.5.0",
+    "@graphql-codegen/typescript-resolvers": "^2.6.5",
+    "@graphql-tools/load-files": "^6.5.4",
+    "@graphql-tools/merge": "^8.2.14",
+    "@prisma/client": "^3.15.1",
+    "apollo-server-micro": "^3.8.2",
+    "graphql": "^16.5.0",
+    "micro-cors": "^0.1.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@types/micro-cors": "^0.1.2",
     "@types/node": "17.0.36",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
-    "eslint": "8.16.0",
     "autoprefixer": "^10.4.4",
+    "eslint": "8.16.0",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.29.4",
@@ -26,7 +41,9 @@
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
+    "prisma": "^3.15.1",
     "tailwindcss": "^3.0.24",
+    "ts-node": "^10.8.1",
     "typescript": "4.7.2"
   }
 }

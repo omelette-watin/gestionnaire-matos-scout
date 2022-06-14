@@ -1,0 +1,10 @@
+schema: ./src/graphql/types/**/*.graphql
+generates:
+  ./src/types/graphql.ts:
+    config:
+      useIndexSignature: true
+    plugins:
+      - add:
+          content: "/* eslint-disable */"
+      - typescript
+      - typescript-resolvers

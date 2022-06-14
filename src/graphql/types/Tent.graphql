@@ -1,0 +1,72 @@
+type Tent {
+  id: ID!
+  identifyingNum: Int!
+  size: Int!
+  unit: Unit
+  state: State!
+  complete: Boolean!
+  integrated: Boolean!
+  location: String!
+  comments: String
+  createdAt: String!
+  updatedAt: String
+  groupId: String!
+  group: Group!
+}
+
+enum Unit {
+  FARFADETS
+  JEANNETTES
+  LOUVETEAUX
+  GUIDES
+  SCOUTS
+  PIONNIERS
+  CARAVELLES
+}
+
+enum State {
+  INUTILISABLE
+  MAUVAIS
+  OK
+  BON
+  NEUF
+}
+
+type TentResponse {
+  code: Int!
+  success: Boolean!
+  message: String!
+  tent: Tent
+}
+
+type Mutation {
+  createTent(
+    identifyingNum: Int!
+    size: Int!
+    unit: Unit
+    state: State!
+    complete: Boolean
+    integrated: Boolean
+    location: String
+    comments: String
+    groupId: String!
+  ): TentResponse
+  updateTent(
+    id: ID!
+    identifyingNum: Int
+    size: Int
+    unit: Unit
+    state: State
+    complete: Boolean
+    integrated: Boolean
+    location: String
+    comments: String
+    groupId: String
+  ): TentResponse
+  deleteTent(id: ID!): TentResponse
+}
+
+type Query {
+  allTentsFromGroup(id: ID!): [Tent!]!
+  tent(id: ID!): Tent
+}
