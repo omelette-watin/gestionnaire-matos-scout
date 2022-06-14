@@ -1,6 +1,8 @@
 import { Resolvers } from "@/types/graphql"
+import { DateTimeResolver } from "graphql-scalars"
 
 const resolvers: Resolvers = {
+  Date: DateTimeResolver,
   Query: {
     tent: (_, { id }, ctx) => {
       return ctx.prisma.tent.findUnique({
