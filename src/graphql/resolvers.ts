@@ -16,6 +16,9 @@ const resolvers: Resolvers = {
         where: {
           groupId: id,
         },
+        orderBy: {
+          identifyingNum: "asc",
+        },
       })
     },
     group: (_, { id }, ctx) => {
