@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <title>MyMatos</title>
       </Head>
       <div className="h-[200vh]">
-        <div className="sticky top-0 z-20 flex justify-center border-b shadow-sm backdrop-blur-md">
+        <div className="sticky top-0 z-20 flex justify-center border-b bg-white shadow-md">
           <div className="flex w-full items-center justify-between p-4 sm:w-[80%]">
             <Link href="/">
               <a>
