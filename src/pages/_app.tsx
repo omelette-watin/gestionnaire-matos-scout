@@ -5,6 +5,7 @@ import apolloClient from "@/lib/apolloClient"
 import useGroup from "@/hooks/useGroup"
 import LoadingPage from "@/components/LoadingPage"
 import { GroupContextProvider } from "@/contexts/GroupContext"
+import Layout from "@/components/Layout"
 
 const AppContentWrapper = ({
   Component,
@@ -23,7 +24,9 @@ const AppContentWrapper = ({
 
   return (
     <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} {...othersProps} />
+      <Layout>
+        <Component {...pageProps} {...othersProps} />
+      </Layout>
     </ApolloProvider>
   )
 }
