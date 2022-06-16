@@ -8,13 +8,13 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 
 if (process.env.NODE_ENV === "production") {
   apolloClient = new ApolloClient({
-    uri: "http://localhost:3000/api/graphql",
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
     cache: new InMemoryCache(),
   })
 } else {
   if (!global.apolloClient) {
     global.apolloClient = new ApolloClient({
-      uri: "http://localhost:3000/api/graphql",
+      uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
       cache: new InMemoryCache(),
     })
   }
