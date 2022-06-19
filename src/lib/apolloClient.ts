@@ -10,12 +10,14 @@ if (process.env.NODE_ENV === "production") {
   apolloClient = new ApolloClient({
     uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
     cache: new InMemoryCache(),
+    ssrMode: typeof window === "undefined",
   })
 } else {
   if (!global.apolloClient) {
     global.apolloClient = new ApolloClient({
       uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
       cache: new InMemoryCache(),
+      ssrMode: typeof window === "undefined",
     })
   }
 
@@ -23,3 +25,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export default apolloClient
+
+export const client = new ApolloClient({
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+  cache: new InMemoryCache(),
+  ssrMode: typeof window === "undefined",
+})
