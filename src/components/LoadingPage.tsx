@@ -6,7 +6,7 @@ const LoadingPage = () => {
   return (
     <>
       <Head>
-        <title>MyMatos</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
       </Head>
       <div className="flex h-screen flex-col items-center justify-start pt-[20vh]">
         <Logo large />

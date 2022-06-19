@@ -31,7 +31,7 @@ const Logo = ({
         </g>
       </svg>
 
-      <p>MyMatos</p>
+      <p>{process.env.NEXT_PUBLIC_APP_NAME}</p>
     </div>
   )
 }
