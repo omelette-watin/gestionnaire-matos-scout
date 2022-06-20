@@ -4,7 +4,7 @@ type Tent {
   id: ID!
   identifyingNum: Int!
   size: Int!
-  unit: Unit
+  unit: Unit!
   state: State!
   complete: Boolean!
   integrated: Boolean!
@@ -24,6 +24,7 @@ enum Unit {
   SCOUTS
   PIONNIERS
   CARAVELLES
+  GROUPE
 }
 
 enum State {

@@ -21,7 +21,7 @@ model Tent {
   id             String   @id @default(uuid())
   identifyingNum Int
   size           Int
-  unit           Unit?
+  unit           Unit     @default(GROUPE)
   state          State
   complete       Boolean  @default(true)
   integrated     Boolean  @default(false)
@@ -43,6 +43,7 @@ enum Unit {
   SCOUTS
   PIONNIERS
   CARAVELLES
+  GROUPE
 }
 
 enum State {

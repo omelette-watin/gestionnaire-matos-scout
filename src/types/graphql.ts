@@ -107,7 +107,7 @@ export type Tent = {
   location: Scalars['String'];
   size: Scalars['Int'];
   state: State;
-  unit?: Maybe<Unit>;
+  unit: Unit;
   updatedAt?: Maybe<Scalars['Date']>;
 };
 
@@ -122,6 +122,7 @@ export type TentResponse = {
 export enum Unit {
   Caravelles = 'CARAVELLES',
   Farfadets = 'FARFADETS',
+  Groupe = 'GROUPE',
   Guides = 'GUIDES',
   Jeannettes = 'JEANNETTES',
   Louveteaux = 'LOUVETEAUX',
@@ -264,7 +265,7 @@ export type TentResolvers<ContextType = any, ParentType extends ResolversParentT
   location?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   size?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   state?: Resolver<ResolversTypes['State'], ParentType, ContextType>;
-  unit?: Resolver<Maybe<ResolversTypes['Unit']>, ParentType, ContextType>;
+  unit?: Resolver<ResolversTypes['Unit'], ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
