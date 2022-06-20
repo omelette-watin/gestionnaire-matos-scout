@@ -2,7 +2,7 @@ import { State } from "@/types/graphql"
 import classNames from "classnames"
 import { ReactNode } from "react"
 
-const LabelWrapper = ({ children }: { children: ReactNode }) => {
+export const LabelWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <span className="w-[90%] rounded-md rounded-r-none bg-slate-600 px-1 py-2 text-white">
       {children}

@@ -7,7 +7,7 @@ const TentCard = ({ tent }: { tent: Tent }) => {
 
   return (
     <article className="cursor-pointer rounded-lg border border-slate-900/10 shadow-lg transition-all hover:scale-[1.02]">
-      <Link href={`/tents/${id}`}>
+      <Link href={`/tentes/${id}`}>
         <a>
           <div className="space-y-6 p-4 pb-5">
             <div className="flex items-center space-x-3">
