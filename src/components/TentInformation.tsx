@@ -13,9 +13,7 @@ const TentInformation = ({ label, value }: { label: string; value: any }) => {
   return (
     <div className="flex items-center justify-between rounded-md bg-gray-200 text-center font-semibold text-black">
       <LabelWrapper>{label}</LabelWrapper>
-      <span className="w-full rounded-md rounded-l-none px-1 py-1">
-        {value}
-      </span>
+      <span className="w-full px-1 py-1">{value}</span>
     </div>
   )
 }
@@ -32,9 +30,7 @@ export const TentComplete = ({ value }: { value: boolean }) => {
       )}
     >
       <LabelWrapper>Complète ?</LabelWrapper>
-      <span className="w-full rounded-md rounded-l-none px-1 py-1">
-        {value ? "OUI" : "NON"}
-      </span>
+      <span className="w-full px-1 py-1">{value ? "OUI" : "NON"}</span>
     </div>
   )
 }
@@ -54,9 +50,7 @@ export const TentState = ({ value }: { value: State }) => {
       )}
     >
       <LabelWrapper>État</LabelWrapper>
-      <span className="w-full rounded-md rounded-l-none px-1 py-1">
-        {value}
-      </span>
+      <span className="w-full px-1 py-1">{value}</span>
     </div>
   )
 }
