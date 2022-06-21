@@ -17,9 +17,8 @@ export const TentStateInput = ({
         {
           "bg-green-500": value === "NEUF",
           "bg-lime-500": value === "BON",
-          "bg-yellow-300": value === "OK",
-          "bg-orange-500": value === "MAUVAIS",
-          "bg-red-500": value === "INUTILISABLE",
+          "bg-red-500": value === "MAUVAIS",
+          "bg-black": value === "INUTILISABLE",
         }
       )}
     >
@@ -34,7 +33,6 @@ export const TentStateInput = ({
         >
           <option value="INUTILISABLE">INUTILISABLE</option>
           <option value="MAUVAIS">MAUVAIS</option>
-          <option value="OK">OK</option>
           <option value="BON">BON</option>
           <option value="NEUF">NEUF</option>
         </select>

@@ -43,9 +43,8 @@ export const TentState = ({ value }: { value: State }) => {
         {
           "bg-green-500": value === "NEUF",
           "bg-lime-500": value === "BON",
-          "bg-yellow-300": value === "OK",
-          "bg-orange-500": value === "MAUVAIS",
-          "bg-red-500": value === "INUTILISABLE",
+          "bg-red-500": value === "MAUVAIS",
+          "bg-black": value === "INUTILISABLE",
         }
       )}
     >

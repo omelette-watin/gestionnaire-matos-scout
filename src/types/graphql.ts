@@ -90,8 +90,7 @@ export enum State {
   Bon = 'BON',
   Inutilisable = 'INUTILISABLE',
   Mauvais = 'MAUVAIS',
-  Neuf = 'NEUF',
-  Ok = 'OK'
+  Neuf = 'NEUF'
 }
 
 export type Tent = {

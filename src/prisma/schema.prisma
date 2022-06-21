@@ -49,7 +49,6 @@ enum Unit {
 enum State {
   INUTILISABLE
   MAUVAIS
-  OK
   BON
   NEUF
 }
