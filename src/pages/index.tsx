@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/client"
 import { gql } from "apollo-server-micro"
 import { FaPlus } from "react-icons/fa"
 import type { NextPage } from "next"
+import ExcelExport from "@/components/ExcelExport"
 
 export const TENTS = gql`
   query getAllTentFromGroup($allTentsFromGroupId: ID!) {
@@ -35,21 +36,25 @@ const Home: NextPage = () => {
       <h1 className="my-6 text-5xl font-bold text-slate-900 lg:my-10">
         Groupe <span className="text-emerald-600">{group?.name}</span>
       </h1>
-      <div className="flex justify-end">
-        <button
-          type="button"
-          className="flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-        >
-          <FaPlus />
-          <span>Ajouter une tente</span>
-        </button>
-      </div>
+
       <QueryHandler loading={loading} data={data} error={error}>
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {data?.allTentsFromGroup?.map((tent: Tent) => (
-            <TentCard tent={tent} key={tent.id} />
-          ))}
-        </div>
+        <>
+          <div className="flex justify-end space-x-4">
+            <ExcelExport tents={data?.allTentsFromGroup} />
+            <button
+              type="button"
+              className="flex items-center space-x-2 rounded-md bg-blue-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+            >
+              <FaPlus />
+              <span>Ajouter une tente</span>
+            </button>
+          </div>
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {data?.allTentsFromGroup?.map((tent: Tent) => (
+              <TentCard tent={tent} key={tent.id} />
+            ))}
+          </div>
+        </>
       </QueryHandler>
     </Container>
   )
