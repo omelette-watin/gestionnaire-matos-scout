@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { GraphQLResolveInfo } from 'graphql';
+import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -13,6 +13,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  Date: any;
 };
 
 export type Group = {
@@ -96,7 +97,7 @@ export type Tent = {
   __typename?: 'Tent';
   comments?: Maybe<Scalars['String']>;
   complete: Scalars['Boolean'];
-  createdAt: Scalars['String'];
+  createdAt: Scalars['Date'];
   group: Group;
   groupId: Scalars['String'];
   id: Scalars['ID'];
@@ -106,7 +107,7 @@ export type Tent = {
   size: Scalars['Int'];
   state: State;
   unit: Unit;
-  updatedAt?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['Date']>;
 };
 
 export type TentResponse = {
@@ -199,6 +200,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Date: ResolverTypeWrapper<Scalars['Date']>;
   Group: ResolverTypeWrapper<Group>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
@@ -214,6 +216,7 @@ export type ResolversTypes = ResolversObject<{
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean'];
+  Date: Scalars['Date'];
   Group: Group;
   ID: Scalars['ID'];
   Int: Scalars['Int'];
@@ -223,6 +226,10 @@ export type ResolversParentTypes = ResolversObject<{
   Tent: Tent;
   TentResponse: TentResponse;
 }>;
+
+export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
+  name: 'Date';
+}
 
 export type GroupResolvers<ContextType = any, ParentType extends ResolversParentTypes['Group'] = ResolversParentTypes['Group']> = ResolversObject<{
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -248,7 +255,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 export type TentResolvers<ContextType = any, ParentType extends ResolversParentTypes['Tent'] = ResolversParentTypes['Tent']> = ResolversObject<{
   comments?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   complete?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
   group?: Resolver<ResolversTypes['Group'], ParentType, ContextType>;
   groupId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
@@ -258,7 +265,7 @@ export type TentResolvers<ContextType = any, ParentType extends ResolversParentT
   size?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   state?: Resolver<ResolversTypes['State'], ParentType, ContextType>;
   unit?: Resolver<ResolversTypes['Unit'], ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -271,6 +278,7 @@ export type TentResponseResolvers<ContextType = any, ParentType extends Resolver
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
+  Date?: GraphQLScalarType;
   Group?: GroupResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;

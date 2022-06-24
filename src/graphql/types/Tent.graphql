@@ -1,3 +1,5 @@
+scalar Date
+
 type Tent {
   id: ID!
   identifyingNum: Int!
@@ -8,8 +10,8 @@ type Tent {
   integrated: Boolean!
   location: String!
   comments: String
-  createdAt: String!
-  updatedAt: String
+  createdAt: Date!
+  updatedAt: Date
   groupId: String!
   group: Group!
 }
