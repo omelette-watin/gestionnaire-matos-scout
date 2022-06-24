@@ -1,5 +1,3 @@
-type Date
-
 type Tent {
   id: ID!
   identifyingNum: Int!
@@ -10,8 +8,8 @@ type Tent {
   integrated: Boolean!
   location: String!
   comments: String
-  createdAt: Date!
-  updatedAt: Date
+  createdAt: String!
+  updatedAt: String
   groupId: String!
   group: Group!
 }

@@ -15,10 +15,6 @@ export type Scalars = {
   Float: number;
 };
 
-export type Date = {
-  __typename?: 'Date';
-};
-
 export type Group = {
   __typename?: 'Group';
   createdAt: Scalars['String'];
@@ -100,7 +96,7 @@ export type Tent = {
   __typename?: 'Tent';
   comments?: Maybe<Scalars['String']>;
   complete: Scalars['Boolean'];
-  createdAt: Date;
+  createdAt: Scalars['String'];
   group: Group;
   groupId: Scalars['String'];
   id: Scalars['ID'];
@@ -110,7 +106,7 @@ export type Tent = {
   size: Scalars['Int'];
   state: State;
   unit: Unit;
-  updatedAt?: Maybe<Date>;
+  updatedAt?: Maybe<Scalars['String']>;
 };
 
 export type TentResponse = {
@@ -203,7 +199,6 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  Date: ResolverTypeWrapper<Date>;
   Group: ResolverTypeWrapper<Group>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
@@ -219,7 +214,6 @@ export type ResolversTypes = ResolversObject<{
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean'];
-  Date: Date;
   Group: Group;
   ID: Scalars['ID'];
   Int: Scalars['Int'];
@@ -228,10 +222,6 @@ export type ResolversParentTypes = ResolversObject<{
   String: Scalars['String'];
   Tent: Tent;
   TentResponse: TentResponse;
-}>;
-
-export type DateResolvers<ContextType = any, ParentType extends ResolversParentTypes['Date'] = ResolversParentTypes['Date']> = ResolversObject<{
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type GroupResolvers<ContextType = any, ParentType extends ResolversParentTypes['Group'] = ResolversParentTypes['Group']> = ResolversObject<{
@@ -258,7 +248,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 export type TentResolvers<ContextType = any, ParentType extends ResolversParentTypes['Tent'] = ResolversParentTypes['Tent']> = ResolversObject<{
   comments?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   complete?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   group?: Resolver<ResolversTypes['Group'], ParentType, ContextType>;
   groupId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
@@ -268,7 +258,7 @@ export type TentResolvers<ContextType = any, ParentType extends ResolversParentT
   size?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   state?: Resolver<ResolversTypes['State'], ParentType, ContextType>;
   unit?: Resolver<ResolversTypes['Unit'], ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -281,7 +271,6 @@ export type TentResponseResolvers<ContextType = any, ParentType extends Resolver
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
-  Date?: DateResolvers<ContextType>;
   Group?: GroupResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
