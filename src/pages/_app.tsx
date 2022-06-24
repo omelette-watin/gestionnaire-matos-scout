@@ -6,6 +6,15 @@ import useGroup from "@/hooks/useGroup"
 import LoadingPage from "@/components/LoadingPage"
 import { GroupContextProvider } from "@/contexts/GroupContext"
 import Layout from "@/components/Layout"
+import NProgress from "nprogress"
+import Router from "next/router"
+import { useEffect } from "react"
+
+NProgress.configure({
+  showSpinner: false,
+  easing: "ease",
+  speed: 600,
+})
 
 const AppContentWrapper = ({
   Component,
@@ -31,6 +40,12 @@ const AppContentWrapper = ({
   )
 }
 const App = (props: AppProps) => {
+  useEffect(() => {
+    Router.events.on("routeChangeStart", () => NProgress.start())
+    Router.events.on("routeChangeComplete", () => NProgress.done())
+    Router.events.on("routeChangeError", () => NProgress.done())
+  }, [])
+
   return (
     <GroupContextProvider>
       <AppContentWrapper {...props} />
