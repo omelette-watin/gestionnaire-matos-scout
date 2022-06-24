@@ -1,4 +1,4 @@
-scalar Date
+type Date
 
 type Tent {
   id: ID!
