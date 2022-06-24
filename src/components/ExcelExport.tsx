@@ -13,7 +13,7 @@ const ExcelExport = ({ tents }: { tents: Tent[] }) => {
       ["Nombre de places"]: e.size,
       ["Tapis de sol intégré"]: e.integrated ? "OUI" : "NON",
       ["État"]: e.state,
-      ["Complète"]: e.state,
+      ["Complète"]: e.complete ? "OUI" : "NON",
       ["Commentaires"]: e.comments,
       ["Emplacement"]: e.location,
     }
