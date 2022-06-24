@@ -31,10 +31,18 @@ export const TentStateInput = ({
           }}
           className="w-full border-none bg-transparent px-4 font-semibold outline-none"
         >
-          <option value="INUTILISABLE">INUTILISABLE</option>
-          <option value="MAUVAIS">MAUVAIS</option>
-          <option value="BON">BON</option>
-          <option value="NEUF">NEUF</option>
+          <option value="INUTILISABLE" className="text-black">
+            INUTILISABLE
+          </option>
+          <option value="MAUVAIS" className="text-black">
+            MAUVAIS
+          </option>
+          <option value="BON" className="text-black">
+            BON
+          </option>
+          <option value="NEUF" className="text-black">
+            NEUF
+          </option>
         </select>
       </div>
     </div>
@@ -68,8 +76,12 @@ export const TentCompleteInput = ({
           }}
           className="w-full border-none bg-transparent px-4 font-semibold outline-none"
         >
-          <option value="OUI">OUI</option>
-          <option value="NON">NON</option>
+          <option value="OUI" className="text-black">
+            OUI
+          </option>
+          <option value="NON" className="text-black">
+            NON
+          </option>
         </select>
       </div>
     </div>
@@ -132,11 +144,8 @@ export const TentSizeInput = ({
           <option value={2}>2 places</option>
           <option value={3}>3 places</option>
           <option value={4}>4 places</option>
-          <option value={5}>5 places</option>
           <option value={6}>6 places</option>
-          <option value={7}>7 places</option>
           <option value={8}>8 places</option>
-          <option value={9}>9 places</option>
           <option value={10}>10 places</option>
         </select>
       </div>
@@ -191,10 +200,10 @@ export const TentWhereInput = ({
           className="w-full border-none bg-transparent px-4 font-semibold outline-none"
         >
           <option value="local">au local</option>
-          <option value="week-end">en week-end</option>
-          <option value="camp">en camp</option>
           <option value="église">à l'église</option>
           <option value="réparation">en réparation</option>
+          <option value="week-end">en week-end</option>
+          <option value="camp">en camp</option>
           <option value="autre">autre</option>
         </select>
       </div>

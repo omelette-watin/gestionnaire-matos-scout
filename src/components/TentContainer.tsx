@@ -30,12 +30,12 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
 
   return (
     <>
-      <div className="space-y-8 border-b border-gray-300/80 py-5">
-        <div className="flex flex-col items-center space-y-6 sm:flex-row sm:justify-between sm:space-y-0">
+      <div className="space-y-8 py-5">
+        <div className="flex flex-col items-center space-y-6">
           <h2 className="flex items-center space-x-3">
-            <div className="text-3xl font-bold sm:text-5xl">Tente n°</div>
+            <div className="text-3xl font-bold lg:text-5xl">Tente n°</div>
             <div className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-slate-800 sm:h-24 sm:w-24">
-              <div className="text-3xl font-bold sm:text-4xl">
+              <div className="text-3xl font-bold lg:text-4xl">
                 {identifyingNum}
               </div>
             </div>
@@ -59,68 +59,69 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
             </button>
           </div>
         </div>
+        <div className="flex flex-col items-center">
+          <div className="space-y-2 font-bold md:w-1/2">
+            <h3 className="py-2 text-xl sm:text-2xl">
+              Caractéristiques et informations
+            </h3>
+            <TentState value={state} />
+            <TentComplete value={complete} />
+            <TentInformation
+              label={unit ? "Attribuée aux" : "Attribuée au"}
+              value={unit || "GROUPE"}
+            />
 
-        <div className="space-y-2 font-bold sm:w-1/2">
-          <h3 className="py-2 text-xl sm:text-2xl">
-            Caractéristiques et informations
-          </h3>
-          <TentState value={state} />
-          <TentComplete value={complete} />
-          <TentInformation
-            label={unit ? "Attribuée aux" : "Attribuée au"}
-            value={unit || "GROUPE"}
-          />
-
-          <TentInformation
-            label="Taille"
-            value={`${size} place${size > 1 ? "s" : ""}`}
-          />
-          <TentInformation
-            label="Tapis de sol"
-            value={integrated ? "intégré" : "normal"}
-          />
-          <TentInformation label="Où ?" value={location} />
-          <div className="space-y-2 py-2">
-            {comments ? (
-              <>
-                <h4 className="text-xl">Commentaires : </h4>
-                <div className="whitespace-pre-wrap break-words pl-2 font-normal">
-                  " {comments} "
-                </div>
-              </>
-            ) : (
-              <h4 className="font-normal italic text-gray-500 sm:text-lg">
-                Pas de commentaire pour l'instant ...
-              </h4>
-            )}
+            <TentInformation
+              label="Taille"
+              value={`${size} place${size > 1 ? "s" : ""}`}
+            />
+            <TentInformation
+              label="Tapis de sol"
+              value={integrated ? "intégré" : "normal"}
+            />
+            <TentInformation label="Où ?" value={location} />
+            <div className="space-y-2 py-2">
+              {comments ? (
+                <>
+                  <h4 className="text-xl">Commentaires : </h4>
+                  <div className="whitespace-pre-wrap break-words pl-2 font-normal">
+                    " {comments} "
+                  </div>
+                </>
+              ) : (
+                <h4 className="font-normal italic text-gray-500 sm:text-lg">
+                  Pas de commentaire pour l'instant ...
+                </h4>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center space-y-4 border-b border-gray-300/80 py-5">
-        <QRCodeCanvas
-          id="QR"
-          size={250}
-          value={`http://192.168.1.53:3000/tentes/${id}?i=${group?.id}`}
-          includeMargin={true}
-        />
-        <p className="text-lg font-semibold">Tente n° {identifyingNum}</p>
-        <button
-          type="button"
-          onClick={downloadTentQR}
-          className="flex items-center space-x-2 rounded-md bg-black px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-        >
-          <FiDownload />
-          <span>Télécharger le QR Code</span>
-        </button>
-      </div>
-      <div className="my-5 flex justify-center py-5">
-        <button
-          type="button"
-          className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-        >
-          <FaTrashAlt />
-          <span>Supprimer cette tente</span>
-        </button>
+        <div className="flex flex-col items-center space-y-4 py-5">
+          <QRCodeCanvas
+            id="QR"
+            size={250}
+            value={`${process.env.NEXT_PUBLIC_APP_URL}/tentes/${id}?i=${group?.id}`}
+            includeMargin={true}
+          />
+          <p className="text-lg font-semibold">Tente n° {identifyingNum}</p>
+          <button
+            type="button"
+            onClick={downloadTentQR}
+            className="flex items-center space-x-2 rounded-md bg-black px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+          >
+            <FiDownload />
+            <span>Télécharger le QR Code</span>
+          </button>
+        </div>
+        <div className="my-5 flex justify-center py-5">
+          <button
+            type="button"
+            className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+          >
+            <FaTrashAlt />
+            <span>Supprimer cette tente</span>
+          </button>
+        </div>
       </div>
     </>
   )

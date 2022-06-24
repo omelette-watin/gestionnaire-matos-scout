@@ -33,7 +33,7 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
         }
       }
 
-      setTimeout(() => setLoading(false), 1700)
+      setLoading(false)
     })()
 
     return () => {

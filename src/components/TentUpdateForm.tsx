@@ -92,8 +92,8 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="space-y-8 border-b border-gray-300/80 py-5">
-        <div className="flex flex-col items-center space-y-6 sm:flex-row sm:justify-between sm:space-y-0">
+      <div className="space-y-8 py-5">
+        <div className="flex flex-col items-center space-y-6">
           <h2 className="flex items-center space-x-3">
             <div className="text-3xl font-bold sm:text-5xl">Tente n°</div>
             <div className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-slate-800 sm:h-24 sm:w-24">
@@ -111,56 +111,58 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
             <span>{submitting ? "Sauvegarde ..." : "Sauvegarder"}</span>
           </button>
         </div>
-        <div className="space-y-2 font-bold sm:w-1/2">
-          <div className="py-2 font-normal italic">
-            <p>
-              Pour mettre à jour cette tente cliquez sur les éléments que vous
-              souhaitez changer.
-            </p>
-            <p>
-              N'oubliez pas de{" "}
-              <strong className="font-bold text-emerald-500">
-                sauvegarder
-              </strong>{" "}
-              les modifications.
-            </p>
+        <div className="flex flex-col items-center">
+          <div className="space-y-2 font-bold sm:w-1/2">
+            <div className="py-2 font-normal italic">
+              <p>
+                Pour mettre à jour cette tente cliquez sur les éléments que vous
+                souhaitez changer.
+              </p>
+              <p>
+                N'oubliez pas de{" "}
+                <strong className="font-semibold text-emerald-500">
+                  sauvegarder
+                </strong>{" "}
+                les modifications.
+              </p>
+            </div>
+            <TentStateInput value={state} setValue={setState} />
+            <TentCompleteInput value={complete} setValue={setComplete} />
+            <TentUnitInput value={unit} setValue={setUnit} />
+            <TentSizeInput value={size} setValue={setSize} />
+            <TentIntegratedInput value={integrated} setValue={setIntegrated} />
+            <TentWhereInput value={location} setValue={setLocation} />
+            <div className="space-y-2 py-2">
+              <h4 className="text-xl">Commentaires : </h4>
+              <textarea
+                rows={3}
+                placeholder="Laisser un commentaire sur l'état de la tente (facultatif)"
+                value={comments || ""}
+                onChange={(e) => setComments(e.target.value)}
+                className="w-full resize-none whitespace-pre-wrap break-words rounded-md border border-black p-2 pl-2 font-normal"
+              ></textarea>
+            </div>
           </div>
-          <TentStateInput value={state} setValue={setState} />
-          <TentCompleteInput value={complete} setValue={setComplete} />
-          <TentUnitInput value={unit} setValue={setUnit} />
-          <TentSizeInput value={size} setValue={setSize} />
-          <TentIntegratedInput value={integrated} setValue={setIntegrated} />
-          <TentWhereInput value={location} setValue={setLocation} />
-          <div className="space-y-2 py-2">
-            <h4 className="text-xl">Commentaires : </h4>
-            <textarea
-              rows={3}
-              placeholder="Laisser un commentaire sur l'état de la tente (facultatif)"
-              value={comments || ""}
-              onChange={(e) => setComments(e.target.value)}
-              className="w-full resize-none whitespace-pre-wrap break-words rounded-md border border-black p-2 pl-2 font-normal"
-            ></textarea>
-          </div>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="m-auto flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
+          >
+            <FiSave />
+            <span>{submitting ? "Sauvegarde ..." : "Sauvegarder"}</span>
+          </button>
         </div>
+        <div className="my-5 flex justify-center py-5">
+          <button
+            type="button"
+            className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+          >
+            <FaTrashAlt />
+            <span>Supprimer cette tente</span>
+          </button>
+        </div>
+      </div>
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="m-auto flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
-        >
-          <FiSave />
-          <span>{submitting ? "Sauvegarde ..." : "Sauvegarder"}</span>
-        </button>
-      </div>
-      <div className="my-5 flex justify-center py-5">
-        <button
-          type="button"
-          className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-        >
-          <FaTrashAlt />
-          <span>Supprimer cette tente</span>
-        </button>
-      </div>
       <ActionResponseNotifier response={updateResponse} />
     </form>
   )

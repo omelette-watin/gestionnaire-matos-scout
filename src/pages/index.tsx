@@ -8,6 +8,7 @@ import { gql } from "apollo-server-micro"
 import { FaPlus } from "react-icons/fa"
 import type { NextPage } from "next"
 import ExcelExport from "@/components/ExcelExport"
+import Link from "next/link"
 
 export const TENTS = gql`
   query getAllTentFromGroup($allTentsFromGroupId: ID!) {
@@ -41,13 +42,13 @@ const Home: NextPage = () => {
         <>
           <div className="flex justify-end space-x-4">
             <ExcelExport tents={data?.allTentsFromGroup} />
-            <button
-              type="button"
-              className="flex items-center space-x-2 rounded-md bg-blue-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-            >
-              <FaPlus />
-              <span>Ajouter une tente</span>
-            </button>
+
+            <Link href="/tentes/new">
+              <a className="flex items-center space-x-2 rounded-md bg-blue-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+                <FaPlus />
+                <span>Ajouter une tente</span>
+              </a>
+            </Link>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data?.allTentsFromGroup?.map((tent: Tent) => (
