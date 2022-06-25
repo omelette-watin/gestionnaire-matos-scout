@@ -1,4 +1,4 @@
-import { State, Tent, TentResponse, Unit } from "@/types/graphql"
+import { State, Tent, Unit } from "@/types/graphql"
 import { useState } from "react"
 import {
   TentCompleteInput,
@@ -10,9 +10,10 @@ import {
 } from "@/components/TentInputs"
 import { FiSave } from "react-icons/fi"
 import { gql, useMutation } from "@apollo/client"
-import ActionResponseNotifier from "@/components/ActionResponseNotifier"
 import classNames from "classnames"
 import { LabelWrapper } from "./TentInformation"
+import useNotif from "@/hooks/useNotif"
+import { useRouter } from "next/router"
 
 export const CREATE_TENT = gql`
   mutation createTent(
@@ -67,9 +68,8 @@ const TentCreateForm = ({
   )
   const [validNum, setValidNum] = useState(true)
   const [submitting, setSubmitting] = useState(false)
-  const [updateResponse, setUpdateResponse] = useState<TentResponse | null>(
-    null
-  )
+  const { setNotification } = useNotif()
+  const router = useRouter()
   const formIsValid = validNum && identifyingNum
   const [createTent] = useMutation(CREATE_TENT, {
     variables: {
@@ -84,19 +84,18 @@ const TentCreateForm = ({
       groupId,
     },
     onCompleted(data) {
-      setUpdateResponse(data.createTent)
+      setNotification(data.createTent)
       setSubmitting(false)
-      setTimeout(() => setUpdateResponse(null), 3000)
+      router.push(`/tentes/${data.createTent.tent.id}`)
     },
     onError() {
-      setUpdateResponse({
+      setNotification({
         code: 400,
         success: false,
         message: "Quelque chose a raté, veuillez réessayer plus tard",
         tent: null,
       })
       setSubmitting(false)
-      setTimeout(() => setUpdateResponse(null), 4000)
     },
   })
   const handleNumChange = (e: any) => {
@@ -196,7 +195,6 @@ const TentCreateForm = ({
           </button>
         </div>
       </div>
-      <ActionResponseNotifier response={updateResponse} />
     </form>
   )
 }

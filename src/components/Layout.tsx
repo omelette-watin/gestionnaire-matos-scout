@@ -1,9 +1,13 @@
+import useNotif from "@/hooks/useNotif"
 import Head from "next/head"
 import Link from "next/link"
 import { ReactNode } from "react"
 import Logo from "./Logo"
+import Notification from "./Notification"
 
 const Layout = ({ children }: { children: ReactNode }) => {
+  const { notification } = useNotif()
+
   return (
     <>
       <Head>
@@ -20,6 +24,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
         {children}
+        <Notification response={notification} />
       </div>
     </>
   )

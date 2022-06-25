@@ -1,5 +1,5 @@
 import { FaTrashAlt } from "react-icons/fa"
-import { Tent, TentResponse } from "@/types/graphql"
+import { Tent } from "@/types/graphql"
 import { useState } from "react"
 import {
   TentCompleteInput,
@@ -12,7 +12,8 @@ import {
 import { FiSave } from "react-icons/fi"
 import { gql } from "apollo-server-micro"
 import { useMutation } from "@apollo/client"
-import ActionResponseNotifier from "./ActionResponseNotifier"
+import useNotif from "@/hooks/useNotif"
+import { useRouter } from "next/router"
 
 export const UPDATE_TENT = gql`
   mutation Mutation(
@@ -54,9 +55,8 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
   const [complete, setComplete] = useState(tent.complete)
   const [integrated, setIntegrated] = useState(tent.integrated)
   const [submitting, setSubmitting] = useState(false)
-  const [updateResponse, setUpdateResponse] = useState<TentResponse | null>(
-    null
-  )
+  const { setNotification } = useNotif()
+  const router = useRouter()
   const [updateTent] = useMutation(UPDATE_TENT, {
     variables: {
       updateTentId: tent.id,
@@ -69,19 +69,18 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
       comments,
     },
     onCompleted(data) {
-      setUpdateResponse(data.updateTent)
+      setNotification(data.updateTent)
       setSubmitting(false)
-      setTimeout(() => setUpdateResponse(null), 3000)
+      router.push(`/tentes/${data.updateTent.tent.id}`)
     },
     onError() {
-      setUpdateResponse({
+      setNotification({
         code: 400,
         success: false,
         message: "Quelque chose a raté, veuillez réessayer plus tard",
         tent: null,
       })
       setSubmitting(false)
-      setTimeout(() => setUpdateResponse(null), 4000)
     },
   })
   const handleSubmit = (e: any) => {
@@ -162,8 +161,6 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
           </button>
         </div>
       </div>
-
-      <ActionResponseNotifier response={updateResponse} />
     </form>
   )
 }

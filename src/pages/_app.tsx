@@ -9,6 +9,7 @@ import Layout from "@/components/Layout"
 import NProgress from "nprogress"
 import Router from "next/router"
 import { useEffect } from "react"
+import { NotificationContextProvider } from "@/contexts/NotificationContext"
 
 NProgress.configure({
   showSpinner: false,
@@ -33,9 +34,11 @@ const AppContentWrapper = ({
 
   return (
     <ApolloProvider client={apolloClient}>
-      <Layout>
-        <Component {...pageProps} {...othersProps} />
-      </Layout>
+      <NotificationContextProvider>
+        <Layout>
+          <Component {...pageProps} {...othersProps} />
+        </Layout>
+      </NotificationContextProvider>
     </ApolloProvider>
   )
 }

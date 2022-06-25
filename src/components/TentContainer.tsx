@@ -104,7 +104,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center space-y-4 py-5">
+        <div className="flex flex-col items-center py-5">
           <QRCodeCanvas
             id="QR"
             size={250}
@@ -115,7 +115,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
           <button
             type="button"
             onClick={downloadTentQR}
-            className="flex items-center space-x-2 rounded-md bg-black px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+            className="mt-4 flex items-center space-x-2 rounded-md bg-black px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
           >
             <FiDownload />
             <span>Télécharger le QR Code</span>
