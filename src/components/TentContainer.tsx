@@ -9,6 +9,7 @@ import TentInformation, {
 } from "@/components/TentInformation"
 import { Tent } from "@/types/graphql"
 import { useRouter } from "next/router"
+import { Date } from "./Date"
 
 const TentContainer = ({ tent }: { tent: Tent }) => {
   const { group } = useGroup()
@@ -23,6 +24,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
     size,
     comments,
     integrated,
+    updatedAt,
   } = tent
   const downloadTentQR = () =>
     downloadImageFromCanvas("QR", `tente_${identifyingNum}`)
@@ -61,9 +63,15 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
         </div>
         <div className="flex flex-col items-center">
           <div className="space-y-2 font-bold md:w-1/2">
-            <h3 className="py-2 text-xl sm:text-2xl">
-              Caractéristiques et informations
-            </h3>
+            <div className="py-2">
+              <h3 className="py-1 text-xl sm:text-2xl">
+                Caractéristiques et informations
+              </h3>
+              <p className="font-medium">
+                Dernière modification le <Date date={updatedAt} />
+              </p>
+            </div>
+
             <TentState value={state} />
             <TentComplete value={complete} />
             <TentInformation

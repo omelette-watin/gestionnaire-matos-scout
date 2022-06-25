@@ -33,6 +33,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
           integrated
           location
           comments
+          updatedAt
         }
       }
     `,
