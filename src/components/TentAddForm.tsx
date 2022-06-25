@@ -15,7 +15,7 @@ import { LabelWrapper } from "./TentInformation"
 import useNotif from "@/hooks/useNotif"
 import { useRouter } from "next/router"
 
-export const CREATE_TENT = gql`
+export const ADD_TENT = gql`
   mutation createTent(
     $identifyingNum: Int!
     $size: Int!
@@ -48,7 +48,7 @@ export const CREATE_TENT = gql`
   }
 `
 
-const TentCreateForm = ({
+const TentAddForm = ({
   groupId,
   existingIdNums,
 }: {
@@ -71,7 +71,7 @@ const TentCreateForm = ({
   const { setNotification } = useNotif()
   const router = useRouter()
   const formIsValid = validNum && identifyingNum
-  const [createTent] = useMutation(CREATE_TENT, {
+  const [createTent] = useMutation(ADD_TENT, {
     variables: {
       identifyingNum: parseInt(identifyingNum),
       unit,
@@ -120,21 +120,21 @@ const TentCreateForm = ({
     <form onSubmit={handleSubmit}>
       <div className="space-y-8 py-5">
         <div className="flex flex-col items-center space-y-6">
-          <h2 className="text-3xl font-bold sm:text-5xl">Créer une tente</h2>
+          <h2 className="text-3xl font-bold sm:text-5xl">Ajouter une tente</h2>
           <button
             type="submit"
             disabled={submitting || !formIsValid}
             className="flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-gray-400"
           >
             <FiSave />
-            <span>{submitting ? "Création ..." : "Créer"}</span>
+            <span>{submitting ? "Ajout ..." : "Ajouter"}</span>
           </button>
         </div>
         <div className="flex flex-col items-center">
           <div className="space-y-2 font-bold sm:w-1/2">
             <div className="py-2 font-normal italic">
               <p>
-                Pour créer une tente, renseignez un{" "}
+                Pour ajouter une tente, renseignez un{" "}
                 <span className="font-semibold text-emerald-500">
                   numéro de tente
                 </span>{" "}
@@ -191,7 +191,7 @@ const TentCreateForm = ({
             className="m-auto flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-gray-400"
           >
             <FiSave />
-            <span>{submitting ? "Création ..." : "Créer"}</span>
+            <span>{submitting ? "Ajout ..." : "Ajouter"}</span>
           </button>
         </div>
       </div>
@@ -199,4 +199,4 @@ const TentCreateForm = ({
   )
 }
 
-export default TentCreateForm
+export default TentAddForm

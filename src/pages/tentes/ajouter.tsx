@@ -2,7 +2,7 @@ import Container from "@/components/Container"
 import { useQuery, gql } from "@apollo/client"
 import useGroup from "@/hooks/useGroup"
 import QueryHandler from "@/components/QueryHandler"
-import TentCreateForm from "@/components/TentCreateForm"
+import TentAddForm from "@/components/TentAddForm"
 
 export const GET_UNUSUABLE_NUM = gql`
   query getUnusuableNums($allTentsFromGroupId: ID!) {
@@ -12,7 +12,7 @@ export const GET_UNUSUABLE_NUM = gql`
   }
 `
 
-const CreateTent = () => {
+const AddTent = () => {
   const { group } = useGroup()
   const { data, loading, error } = useQuery(GET_UNUSUABLE_NUM, {
     variables: {
@@ -23,7 +23,7 @@ const CreateTent = () => {
   return (
     <Container>
       <QueryHandler data={data} loading={loading} error={error}>
-        <TentCreateForm
+        <TentAddForm
           groupId={group?.id}
           existingIdNums={data?.allTentsFromGroup}
         />
@@ -32,4 +32,4 @@ const CreateTent = () => {
   )
 }
 
-export default CreateTent
+export default AddTent

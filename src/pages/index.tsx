@@ -43,7 +43,7 @@ const Home: NextPage = () => {
           <div className="flex justify-end space-x-4">
             <ExcelExport tents={data?.allTentsFromGroup} />
 
-            <Link href="/tentes/new">
+            <Link href="/tentes/ajouter">
               <a className="flex items-center space-x-2 rounded-md bg-blue-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
                 <FaPlus />
                 <span>Ajouter une tente</span>

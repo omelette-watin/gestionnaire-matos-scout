@@ -28,7 +28,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
   } = tent
   const downloadTentQR = () =>
     downloadImageFromCanvas("QR", `tente_${identifyingNum}`)
-  const handleUpdate = () => router.push(`/tentes/modification/${id}`)
+  const handleUpdate = () => router.push(`/tentes/modifier/${id}`)
 
   return (
     <>
