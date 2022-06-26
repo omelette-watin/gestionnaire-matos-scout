@@ -14,6 +14,7 @@ import { gql } from "apollo-server-micro"
 import { useMutation } from "@apollo/client"
 import useNotif from "@/hooks/useNotif"
 import { useRouter } from "next/router"
+import Link from "next/link"
 
 export const UPDATE_TENT = gql`
   mutation Mutation(
@@ -152,13 +153,12 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
           </button>
         </div>
         <div className="my-5 flex justify-center py-5">
-          <button
-            type="button"
-            className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-          >
-            <FaTrashAlt />
-            <span>Supprimer cette tente</span>
-          </button>
+          <Link href={`/tentes/supprimer/${tent.id}`}>
+            <a className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+              <FaTrashAlt />
+              <span>Supprimer cette tente</span>
+            </a>
+          </Link>
         </div>
       </div>
     </form>

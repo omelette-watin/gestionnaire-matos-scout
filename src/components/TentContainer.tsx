@@ -10,6 +10,7 @@ import TentInformation, {
 import { Tent } from "@/types/graphql"
 import { useRouter } from "next/router"
 import { Date } from "./Date"
+import Link from "next/link"
 
 const TentContainer = ({ tent }: { tent: Tent }) => {
   const { group } = useGroup()
@@ -122,13 +123,12 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
           </button>
         </div>
         <div className="my-5 flex justify-center py-5">
-          <button
-            type="button"
-            className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
-          >
-            <FaTrashAlt />
-            <span>Supprimer cette tente</span>
-          </button>
+          <Link href={`/tentes/supprimer/${id}`}>
+            <a className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+              <FaTrashAlt />
+              <span>Supprimer cette tente</span>
+            </a>
+          </Link>
         </div>
       </div>
     </>
