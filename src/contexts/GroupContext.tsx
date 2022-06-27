@@ -23,17 +23,21 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
         router.query.i || (localStorage.getItem("group") as string)
 
       if (groupId) {
-        const { data } = await axios.get(`/api/group?i=${groupId}`)
+        try {
+          const { data } = await axios.get(`/api/group?i=${groupId}`)
 
-        if (data.group) {
-          setGroup(data.group)
-          localStorage.setItem("group", data.group.id)
-        } else {
+          if (data.group) {
+            setGroup(data.group)
+            localStorage.setItem("group", data.group.id)
+          } else {
+            localStorage.removeItem("group")
+          }
+        } catch (error) {
           localStorage.removeItem("group")
         }
       }
 
-      setLoading(false)
+      setTimeout(() => setLoading(false), 700)
     })()
 
     return () => {
