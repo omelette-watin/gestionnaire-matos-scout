@@ -10,6 +10,7 @@ import NProgress from "nprogress"
 import Router from "next/router"
 import { useEffect } from "react"
 import { NotificationContextProvider } from "@/contexts/NotificationContext"
+import SignWrapper from "@/components/SignWrapper"
 
 NProgress.configure({
   showSpinner: false,
@@ -28,8 +29,18 @@ const AppContentWrapper = ({
     return <LoadingPage />
   }
 
-  if (!group) {
-    return <p>Log to your group</p>
+  if (!group && !pageProps.unprotected) {
+    return <SignWrapper />
+  }
+
+  if (!group && pageProps.unprotected) {
+    return (
+      <ApolloProvider client={apolloClient}>
+        <NotificationContextProvider>
+          <Component {...pageProps} {...othersProps} />
+        </NotificationContextProvider>
+      </ApolloProvider>
+    )
   }
 
   return (
