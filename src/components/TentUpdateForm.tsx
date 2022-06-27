@@ -146,7 +146,7 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
           <button
             type="submit"
             disabled={submitting}
-            className="m-auto flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
+            className="m-auto mt-6 flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
           >
             <FiSave />
             <span>{submitting ? "Sauvegarde ..." : "Sauvegarder"}</span>
