@@ -55,15 +55,13 @@ const TentDeleteForm = ({ tent }: { tent: Tent }) => {
           </div>
         </div>
       </h2>
-      <div className="">
+      <div className="text-center ">
         <p className="text-xl font-semibold">
           Souhaitez-vous vraiment{" "}
           <span className="font-bold text-red-500">supprimer</span> cette tente
           ?
         </p>
-        <p className="text-center text-sm italic">
-          Cette action est irreversible
-        </p>
+        <p className="text-sm italic">Cette action est irreversible</p>
       </div>
 
       <button
