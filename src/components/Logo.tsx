@@ -1,22 +1,24 @@
 import classNames from "classnames"
 
 const Logo = ({
+  xsmall,
   small,
   large,
   xl,
   white = false,
 }: {
+  xsmall?: boolean
   small?: boolean
-
   large?: boolean
   xl?: boolean
   white?: boolean
 }): JSX.Element => {
-  const size: number = small ? 26 : large ? 40 : xl ? 60 : 30
+  const size: number = xsmall ? 18 : small ? 26 : large ? 40 : xl ? 60 : 30
 
   return (
     <div
       className={classNames("flex items-center space-x-3 text-2xl font-bold", {
+        "inline-flex space-x-1 text-base": xsmall,
         "text-xl": small,
         "text-4xl": large,
         "space-x-5 text-6xl font-black": xl,
