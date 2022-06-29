@@ -40,11 +40,10 @@ const Home: NextPage = () => {
 
       <QueryHandler loading={loading} data={data} error={error}>
         <>
-          <div className="flex justify-end space-x-4">
+          <div className="flex flex-col space-y-3 font-medium sm:flex-row sm:justify-end sm:space-y-0 sm:space-x-4">
             <ExcelExport tents={data?.allTentsFromGroup} />
-
             <Link href="/tentes/ajouter">
-              <a className="m-auto flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+              <a className="flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
                 <FaPlus />
                 <span>Ajouter une tente</span>
               </a>
