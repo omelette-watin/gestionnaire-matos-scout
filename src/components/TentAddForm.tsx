@@ -124,7 +124,7 @@ const TentAddForm = ({
           <button
             type="submit"
             disabled={submitting || !formIsValid}
-            className="flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-gray-400"
+            className="flex w-fit items-center space-x-2 rounded-3xl bg-emerald-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-gray-400"
           >
             <FiSave />
             <span>{submitting ? "Ajout ..." : "Ajouter"}</span>
@@ -188,7 +188,7 @@ const TentAddForm = ({
           <button
             type="submit"
             disabled={submitting || !formIsValid}
-            className="m-auto mt-6 flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-gray-400"
+            className="flex w-fit items-center space-x-2 rounded-3xl bg-emerald-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-gray-400"
           >
             <FiSave />
             <span>{submitting ? "Ajout ..." : "Ajouter"}</span>

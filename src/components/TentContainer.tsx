@@ -47,7 +47,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
             <button
               type="button"
               onClick={handleUpdate}
-              className="flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+              className="flex w-fit items-center space-x-2 rounded-3xl bg-emerald-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
             >
               <FaPen />
               <span>Modifier</span>
@@ -55,7 +55,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
             <button
               type="button"
               onClick={downloadTentQR}
-              className="flex items-center space-x-2 rounded-md bg-black px-3 py-1 text-lg shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+              className="flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
             >
               <FiDownload />
               <span>QR Code</span>
@@ -116,7 +116,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
           <button
             type="button"
             onClick={downloadTentQR}
-            className="mt-4 flex items-center space-x-2 rounded-md bg-black px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+            className="mt-4 flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
           >
             <FiDownload />
             <span>Télécharger le QR Code</span>
@@ -124,7 +124,7 @@ const TentContainer = ({ tent }: { tent: Tent }) => {
         </div>
         <div className="my-5 flex justify-center py-5">
           <Link href={`/tentes/supprimer/${id}`}>
-            <a className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+            <a className="flex w-fit items-center space-x-2 rounded-3xl bg-red-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
               <FaTrashAlt />
               <span>Supprimer cette tente</span>
             </a>

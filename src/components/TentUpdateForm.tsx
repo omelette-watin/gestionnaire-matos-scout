@@ -105,7 +105,7 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
           <button
             type="submit"
             disabled={submitting}
-            className="flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
+            className="flex w-fit items-center space-x-2 rounded-3xl bg-emerald-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
           >
             <FiSave />
             <span>{submitting ? "Sauvegarde ..." : "Sauvegarder"}</span>
@@ -146,7 +146,7 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
           <button
             type="submit"
             disabled={submitting}
-            className="m-auto mt-6 flex items-center space-x-2 rounded-md bg-emerald-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
+            className="mt-6 flex w-fit items-center space-x-2 rounded-3xl bg-emerald-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-emerald-400"
           >
             <FiSave />
             <span>{submitting ? "Sauvegarde ..." : "Sauvegarder"}</span>
@@ -154,7 +154,7 @@ const TentUpdateForm = ({ tent }: { tent: Tent }) => {
         </div>
         <div className="my-5 flex justify-center py-5">
           <Link href={`/tentes/supprimer/${tent.id}`}>
-            <a className="flex items-center space-x-2 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+            <a className="flex w-fit items-center space-x-2 rounded-3xl bg-red-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
               <FaTrashAlt />
               <span>Supprimer cette tente</span>
             </a>

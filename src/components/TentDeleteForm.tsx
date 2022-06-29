@@ -68,7 +68,7 @@ const TentDeleteForm = ({ tent }: { tent: Tent }) => {
         type="button"
         onClick={handleDelete}
         disabled={submitting}
-        className="flex w-36 items-center justify-center space-x-3 rounded-md bg-red-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-red-400"
+        className="flex w-fit items-center space-x-2 rounded-3xl bg-red-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm disabled:bg-red-400"
       >
         <FaTrashAlt />
         <span>Supprimer</span>
@@ -76,7 +76,7 @@ const TentDeleteForm = ({ tent }: { tent: Tent }) => {
       <button
         type="button"
         onClick={handleCancel}
-        className="flex w-36 items-center justify-center space-x-3 rounded-md bg-zinc-400 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+        className="flex w-fit items-center space-x-2 rounded-3xl bg-gray-400 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
       >
         <FaArrowLeft />
         <span>Annuler</span>

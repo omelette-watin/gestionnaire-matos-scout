@@ -44,7 +44,7 @@ const Home: NextPage = () => {
             <ExcelExport tents={data?.allTentsFromGroup} />
 
             <Link href="/tentes/ajouter">
-              <a className="flex items-center space-x-2 rounded-md bg-blue-500 px-3 py-1 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+              <a className="m-auto flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
                 <FaPlus />
                 <span>Ajouter une tente</span>
               </a>
