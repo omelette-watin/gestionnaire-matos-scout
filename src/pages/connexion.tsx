@@ -6,10 +6,8 @@ import { FaArrowLeft } from "react-icons/fa"
 import { GiForestCamp } from "react-icons/gi"
 import classNames from "classnames"
 import axios from "axios"
-import useGroup from "@/hooks/useGroup"
 
 const Connexion = () => {
-  const { setGroup } = useGroup()
   const router = useRouter()
   const goBack = () => router.push("/")
   const [value, setValue] = useState("")
@@ -29,8 +27,7 @@ const Connexion = () => {
       if (!data?.group) {
         setError(true)
       } else {
-        setGroup(data.group)
-        goBack()
+        router.push(`/?i=${data.group.id}`)
       }
     } catch (error) {
       setError(true)
@@ -59,6 +56,7 @@ const Connexion = () => {
         >
           <GiForestCamp size={20} />
           <input
+            autoFocus
             type="text"
             value={value}
             onChange={handleChange}
@@ -87,7 +85,7 @@ const Connexion = () => {
             onClick={goBack}
             className="m-auto flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
           >
-            <FaArrowLeft size={24} />
+            <FaArrowLeft size={20} />
             <span>Retour</span>
           </button>
           <button
