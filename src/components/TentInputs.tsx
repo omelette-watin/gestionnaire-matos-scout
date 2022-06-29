@@ -202,8 +202,6 @@ export const TentWhereInput = ({
           <option value="local">au local</option>
           <option value="église">à l'église</option>
           <option value="réparation">en réparation</option>
-          <option value="week-end">en week-end</option>
-          <option value="camp">en camp</option>
           <option value="autre">autre</option>
         </select>
       </div>
