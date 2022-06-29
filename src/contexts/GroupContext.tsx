@@ -1,6 +1,6 @@
 import { Group } from "@/types/graphql"
 import axios from "axios"
-import { NextRouter, useRouter } from "next/router"
+import { useRouter } from "next/router"
 import { createContext, ReactNode, useEffect, useState } from "react"
 
 export interface GroupContextType {
@@ -16,23 +16,6 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
   const [group, setGroup] = useState<Group | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
-  const removeQueryParamsFromRouter = (
-    router: NextRouter,
-    removeList: string[] = []
-  ) => {
-    if (removeList.length > 0) {
-      removeList.forEach((param) => delete router.query[param])
-    }
-
-    router.replace(
-      {
-        pathname: router.pathname,
-        query: router.query,
-      },
-      undefined,
-      { shallow: true }
-    )
-  }
 
   useEffect(() => {
     ;(async () => {
@@ -54,7 +37,6 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
         }
       }
 
-      removeQueryParamsFromRouter(router, ["i"])
       setTimeout(() => setLoading(false), 700)
     })()
 
