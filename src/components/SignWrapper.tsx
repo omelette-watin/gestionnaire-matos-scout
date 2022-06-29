@@ -26,7 +26,7 @@ const SignWrapper = ({ children }: { children?: ReactNode }) => {
             </p>
           </div>
         </div>
-        <div className="z-10 rounded-lg bg-white px-2 py-6 text-center lg:px-4 lg:shadow-lg">
+        <div className="z-10 w-96 max-w-[95vw] rounded-lg bg-white px-2 py-6 text-center lg:px-4 lg:shadow-lg">
           {children || (
             <>
               <h2 className="mb-6 text-[40px] font-black">Connexion</h2>

@@ -1,12 +1,18 @@
 import useNotif from "@/hooks/useNotif"
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { ReactNode } from "react"
 import Logo from "./Logo"
 import Notification from "./Notification"
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const { notification } = useNotif()
+  const router = useRouter()
+  const disconnect = () => {
+    localStorage.removeItem("group")
+    router.reload()
+  }
 
   return (
     <>
@@ -21,6 +27,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
                 <Logo />
               </a>
             </Link>
+            <button type="button" onClick={disconnect}>
+              Déconnecter
+            </button>
           </div>
         </div>
         {children}

@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.scaning {
+  animation: scan 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes scan {
+  from {
+    transform: translate3d(-4px, 0, 0);
+  }
+  50% {
+    transform: translate3d(4px, 0, 0);
+  }
+  to {
+    transform: translate3d(-4px, 0, 0);
+  }
+}
+
 .loader {
   position: relative;
   width: 2.5em;
