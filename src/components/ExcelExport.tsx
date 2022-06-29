@@ -40,7 +40,7 @@ const ExcelExport = ({ tents }: { tents: Tent[] }) => {
 
       XLSX.utils.book_append_sheet(wb, ws, units[i])
     }
-    XLSX.writeFile(wb, "Tentes_SVP.xlsx")
+    XLSX.writeFile(wb, "Tentes.xlsx")
     setSubmitting(false)
   }
 
