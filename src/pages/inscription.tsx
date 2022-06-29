@@ -91,7 +91,7 @@ const Inscription = () => {
             onClick={goBack}
             className="m-auto flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
           >
-            <FaArrowLeft size={24} />
+            <FaArrowLeft size={20} />
             <span>Retour</span>
           </button>
           <button
