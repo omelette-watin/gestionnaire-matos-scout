@@ -54,8 +54,7 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
           pathname: router.pathname,
           query: null,
         },
-        undefined,
-        { shallow: true }
+        undefined
       )
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
