@@ -30,9 +30,11 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
             setGroup(data.group)
             localStorage.setItem("group", data.group.id)
           } else {
+            setGroup(null)
             localStorage.removeItem("group")
           }
         } catch (error) {
+          setGroup(null)
           localStorage.removeItem("group")
         }
       }
@@ -44,6 +46,20 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
       setLoading(true)
     }
   }, [router.query.i])
+
+  useEffect(() => {
+    if (group) {
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: null,
+        },
+        undefined,
+        { shallow: true }
+      )
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [group])
 
   return (
     <GroupContext.Provider value={{ group, setGroup, loading }}>
