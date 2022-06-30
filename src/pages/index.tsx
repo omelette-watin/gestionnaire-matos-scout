@@ -1,14 +1,10 @@
 import Container from "@/components/Container"
 import QueryHandler from "@/components/QueryHandler"
-import TentCard from "@/components/TentCard"
 import useGroup from "@/hooks/useGroup"
-import { Tent } from "@/types/graphql"
 import { useQuery } from "@apollo/client"
 import { gql } from "apollo-server-micro"
-import { FaPlus } from "react-icons/fa"
 import type { NextPage } from "next"
-import ExcelExport from "@/components/ExcelExport"
-import Link from "next/link"
+import TentsContainer from "@/components/TentsContainer"
 
 export const TENTS = gql`
   query getAllTentFromGroup($allTentsFromGroupId: ID!) {
@@ -39,22 +35,7 @@ const Home: NextPage = () => {
       </h1>
 
       <QueryHandler loading={loading} data={data} error={error}>
-        <>
-          <div className="flex flex-col space-y-3 font-medium sm:flex-row sm:justify-end sm:space-y-0 sm:space-x-4">
-            <ExcelExport tents={data?.allTentsFromGroup} />
-            <Link href="/tentes/ajouter">
-              <a className="flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
-                <FaPlus />
-                <span>Ajouter une tente</span>
-              </a>
-            </Link>
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data?.allTentsFromGroup?.map((tent: Tent) => (
-              <TentCard tent={tent} key={tent.id} />
-            ))}
-          </div>
-        </>
+        <TentsContainer tents={data?.allTentsFromGroup} />
       </QueryHandler>
     </Container>
   )
