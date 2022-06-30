@@ -103,7 +103,7 @@ export const TentUnitInput = ({
 }: {
   value: Unit | null
   // eslint-disable-next-line no-unused-vars
-  setValue: (value: Unit | null) => void
+  setValue: (value: Unit) => void
   label?: string
 }) => {
   return (
@@ -141,7 +141,7 @@ export const TentSizeInput = ({
 }: {
   value: number | null
   // eslint-disable-next-line no-unused-vars
-  setValue: (value: number | null) => void
+  setValue: (value: number) => void
   label?: string
 }) => {
   return (
@@ -151,7 +151,7 @@ export const TentSizeInput = ({
         <select
           value={value || ""}
           onChange={(e) => {
-            setValue(parseInt(e.target.value) || null)
+            setValue(parseInt(e.target.value))
           }}
           className="w-full border-none bg-transparent px-4 font-semibold outline-none"
         >
