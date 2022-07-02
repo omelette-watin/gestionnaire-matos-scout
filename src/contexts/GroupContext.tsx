@@ -48,7 +48,7 @@ export const GroupContextProvider = ({ children }: { children: ReactNode }) => {
   }, [router.query.i])
 
   useEffect(() => {
-    if (group) {
+    if (group && router.query.i) {
       router.replace(
         {
           pathname: router.pathname,
