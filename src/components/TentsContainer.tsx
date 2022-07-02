@@ -79,7 +79,22 @@ const TentsContainer = ({ tents }: { tents: Tent[] }) => {
           <TentCard tent={tent} key={tent.id} />
         ))}
       </div>
-      {!wantedTents.length && (
+      {tents.length === 0 && (
+        <div className="mt-8 flex flex-col items-center justify-center space-y-6 text-center text-xl font-medium">
+          <h3 className="text-3xl font-semibold">
+            Bienvenue sur{" "}
+            <span className="font-bold text-emerald-600">MonMatos</span> !
+          </h3>
+          <p className="text-gray-400">Vous n'avez pas encore de tentes ...</p>
+          <Link href="/tentes/ajouter">
+            <a className="flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg font-medium text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+              <FaPlus />
+              <span>Ajouter une tente</span>
+            </a>
+          </Link>
+        </div>
+      )}
+      {!wantedTents.length && tents.length > 0 && (
         <div className="mt-8 flex items-center justify-center text-xl font-medium text-gray-400">
           <p>Aucune tente ne correspond à vos critères !</p>
         </div>
