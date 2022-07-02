@@ -33,6 +33,27 @@ const resolvers: Resolvers = {
     },
   },
   Mutation: {
+    createGroup: async (_, args, ctx) => {
+      try {
+        const group = await ctx.prisma.group.create({
+          data: args,
+        })
+
+        return {
+          code: 200,
+          success: true,
+          message: `Le groupe scout "${group.name}" a bien été créé !`,
+          group,
+        }
+      } catch (err: any) {
+        return {
+          code: 401,
+          success: false,
+          message: err.message,
+          group: null,
+        }
+      }
+    },
     createTent: async (_, args, ctx) => {
       try {
         const tent = await ctx.prisma.tent.create({

@@ -78,11 +78,23 @@ const typeDefs = gql`
     allTentsFromGroup(id: ID!): [Tent!]!
     tent(id: ID!): Tent
   }
+
   type Group {
     id: ID!
     name: String!
-    createdAt: String!
+    createdAt: Date!
     tents: [Tent!]!
+  }
+
+  type GroupeResponse {
+    code: Int!
+    success: Boolean!
+    message: String!
+    group: Group
+  }
+
+  type Mutation {
+    createGroup(name: String!): GroupeResponse
   }
 
   type Query {
