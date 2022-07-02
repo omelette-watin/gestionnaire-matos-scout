@@ -33,7 +33,7 @@ const AppContentWrapper = ({
     return <SignWrapper />
   }
 
-  if (!group && pageProps.unprotected) {
+  if (pageProps.unprotected) {
     return (
       <ApolloProvider client={apolloClient}>
         <NotificationContextProvider>
