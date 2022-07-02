@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { useMutation } from "@apollo/client"
 import useNotif from "@/hooks/useNotif"
 import { useState } from "react"
-import { FaTrashAlt, FaArrowLeft } from "react-icons/fa"
+import { FaTrashAlt } from "react-icons/fa"
 
 export const DELETE_TENT = gql`
   mutation Mutation($deleteTentId: ID!) {
@@ -70,7 +70,6 @@ const TentDeleteForm = ({ tent }: { tent: Tent }) => {
           onClick={handleCancel}
           className="flex w-fit items-center space-x-4 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
         >
-          <FaArrowLeft />
           <span>Annuler</span>
         </button>
         <button

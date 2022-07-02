@@ -58,7 +58,7 @@ const TentsContainer = ({ tents }: { tents: Tent[] }) => {
           <button
             type="button"
             onClick={toggleFilterVisibility}
-            className="flex w-fit items-center space-x-2 rounded-3xl bg-blue-500 px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
+            className="flex w-fit items-center space-x-2 rounded-3xl bg-blue-500 px-5 py-2 text-lg font-medium text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm"
           >
             <MdFilterListAlt />
             <span>Filtrer</span>
@@ -67,14 +67,14 @@ const TentsContainer = ({ tents }: { tents: Tent[] }) => {
         <div className="order-1 mb-5 flex flex-col space-y-5 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-4 lg:order-2 lg:mb-0">
           <ExcelExport tents={tents} />
           <Link href="/tentes/ajouter">
-            <a className="flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
+            <a className="flex w-fit items-center space-x-2 rounded-3xl bg-black px-5 py-2 text-lg font-medium text-white shadow-lg transition hover:scale-[0.98] hover:shadow-sm">
               <FaPlus />
               <span>Ajouter une tente</span>
             </a>
           </Link>
         </div>
       </div>
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mt-8 grid grid-cols-1 gap-4 font-semibold sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {wantedTents.map((tent: Tent) => (
           <TentCard tent={tent} key={tent.id} />
         ))}
