@@ -95,7 +95,7 @@ const TentsContainer = ({ tents }: { tents: Tent[] }) => {
         </div>
       )}
       {!wantedTents.length && tents.length > 0 && (
-        <div className="mt-8 flex items-center justify-center text-xl font-medium text-gray-400">
+        <div className="mt-8 flex items-center justify-center text-center text-xl font-medium text-gray-400">
           <p>Aucune tente ne correspond à vos critères !</p>
         </div>
       )}
